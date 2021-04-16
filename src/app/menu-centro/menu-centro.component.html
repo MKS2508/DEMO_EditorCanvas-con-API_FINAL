@@ -1,0 +1,125 @@
+<div *ngIf="mostrarNew == false">
+  <button class="btn-lg btn-outline-primary" (click)="mostrar(true)">
+    Nuevo Centro
+  </button>
+</div>
+
+
+
+
+<div class="mostrarNew" *ngIf="mostrarNew == true">
+  <button class="btn-lg btn-outline-primary" (click)="mostrar(false)">
+    Mostrar Centros
+  </button>
+  <div class="card">
+    <div class="centrar">
+
+      <div class="container">
+        <form [formGroup]="centroForm" (ngSubmit)="onSubmit()">
+
+          <div class="flexItem1" >
+            <div class="form-group" style="margin-right:500px">
+              <label for="id">ID: </label>
+              <input type="number" id="id" formControlName="id">
+            </div>
+            <div class="form-group" style="margin-right:500px">
+              <label for="width">Width: </label>
+              <input type="number" id="width" formControlName="width">
+
+
+            </div>
+            <div class="form-group" style="margin-right:500px">
+
+              <label for="height">Height: </label>
+              <input type="number" id="height" formControlName="height">
+
+            </div>
+
+            <div class="form-group" style="margin-right:500px">
+
+              <label for="canvasImage">CanvasImage: </label>
+              <input type="text" id="canvasImage" formControlName="canvasImage">
+
+            </div>
+
+
+          </div>
+        </form>
+      </div>
+
+      <div class="flexItem" >
+        <div class="card"  style="margin-right:40px">
+          <div class="imagen">
+            <img src="../../assets/img/Plano.jpg" width="100%">
+          </div>
+          <div class="texto">
+            <h5 class="card-title" style="margin-top: 10px;">Nuevo centro</h5>
+            <h6 class="card-subtitle mb-2 text-muted">centro</h6>
+          </div>
+          <div class="boton" style="text-align: center">
+            <button  (click)="onSubmit()" class="btn-outline-primary btn-lg">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<div class="listaCentros" *ngIf="mostrarNew == false">
+<div class="serv">
+
+  <ul>
+    <li *ngFor="let centro of listaCentros">
+      <div class="card" style="width: 80%;margin-left: 10%; margin-right: 10%; height:650px">
+        <img class="card-img-top" src="{{centro.canvasImage}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Centro {{centro.id}}</h5>
+          <p class="card-text">
+            Numero de aulas: {{centro.aulas.length}}
+            <br>
+            Tamanio del lienzo: {{centro.width}} x {{centro.height}} px.
+          </p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><button (click)="editar(centro.id)" class="btn-lg btn-outline-primary">
+              EDITAR
+            </button></li>
+            <li class="list-group-item"><button (click)="visualizar(centro.id)" class="btn-lg btn-outline-primary">
+              VER (sin impl)
+            </button></li>
+            <li class="list-group-item"><button (click)="eliminarCentro(centro.id)"  class="btn-lg btn-outline-danger">
+              ELIMINAR (sin impl)
+            </button></li>
+            <li class="list-group-item">
+
+              <a href="{{centro.canvasImage}}">Imagen: </a>
+
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+
+    </li>
+  </ul>
+</div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xl-4 text-center">
+      </div>
+
+    </div>
+
+    <hr>
+
+</div>
+</div>
+
+

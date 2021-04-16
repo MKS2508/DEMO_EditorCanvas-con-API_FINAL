@@ -1,0 +1,37 @@
+
+
+<div class="menu" *ngIf="mostrar == false">
+<app-menu-centro></app-menu-centro>
+</div>
+
+<div class="editor" *ngIf="mostrar == true">
+
+  <h1 class="col-xl-12 text-center">
+     DEMO EDITOR CANVAS ANGULAR FABRICJS
+  </h1>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xl-4 text-center">
+        <app-controles-lienzo></app-controles-lienzo>
+      </div>
+
+      <div class="col-xl-4 text-center">
+      <app-controles-lienzo2></app-controles-lienzo2>
+      </div>
+
+      <div class="col-xl-4 text-center">
+        <app-controles-lienzo3></app-controles-lienzo3>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 style="text-align: center;">LIENZO 🎨</h2>
+        </div>
+        <app-editor-lienzo #canvas></app-editor-lienzo>
+      </div>
+    </div>
+
+  </div>
+</div>
